@@ -1,0 +1,29 @@
+<div class="row login">
+	<form class='form-login' #userLogin='ngForm' (ngSubmit)="userLogin.form.valid && onSubmit(userLogin)">
+		 <div class="form-group text-right">
+	        <a class="btn btn-link btn-sm" [routerLink]="['/add-user']" >
+	          <i class="fas fa-user-plus"></i> Registrate
+	      	</a>
+	      </div>
+	      <div class="form-group">
+	        <label for="email">Email</label>
+	        <input placeholder="Email" type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': userLogin.submitted && email.invalid }" required />
+	          <div *ngIf="userLogin.submitted && email.invalid" class="invalid-feedback">
+	            <div *ngIf="email.errors.required">Email es requerido</div>
+	          </div>
+	      </div>
+	      
+	      <div class="form-group">
+	        <label for="password">Contraseña</label>
+	        <input placeholder="Contraseña" type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': userLogin.submitted && password.invalid }" required />
+	          <div *ngIf="userLogin.submitted && password.invalid" class="invalid-feedback">
+	            <div *ngIf="password.errors.required">Contraseña es requerido</div>
+	          </div>
+	      </div>
+	      
+	      <div class="text-center">
+	        <button class="btn btn-primary btn-sm"><i class="fas fa-user"></i>Acceso</button>  
+	      </div>
+	</form>
+
+</div>

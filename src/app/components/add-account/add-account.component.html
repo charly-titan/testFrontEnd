@@ -1,0 +1,22 @@
+<div class="login">
+  <form class='form-login' #addAccount='ngForm' (ngSubmit)="onSubmit(addAccount)">
+    <div class="form-group">
+      <label for="selectAccount">Cuentas registradas</label>
+      <select class="form-control" id="selectAccount" name="account">
+        <option>Selecciona una cuenta</option>
+        <option *ngFor="let account of listAccounts" [ngValue]="account">{{account.type}} -- {{account.name}}</option>
+      </select>
+    </div>
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-4 col-form-label">Solicitar nueva cuenta</label>
+      <div class="col-sm-8">
+        <select class="form-control" [(ngModel)]="cardSelected" name='card'>
+          <option *ngFor="let card of listCards" [ngValue]="card">{{card.type}} -- {{card.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-sm">Agregar cuenta</button>
+      </div>
+  </form>
+</div>
